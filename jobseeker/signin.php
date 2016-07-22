@@ -6,7 +6,7 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "localhost";
+    $host = "127.4.165.130";
     $database = "lobjobs";
     $username = "adminwagSBFP";
     $password = "aTiE-N3vLNx6";

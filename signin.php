@@ -9,10 +9,10 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "localhost";
+    $host = "127.4.165.130";
     $database = "lobjobs";
-    $username = "root";
-    $password = "nizar0756";
+    $username = "adminwagSBFP";
+    $password = "YJcrW76tbMj2";
     $port = "3036";
 
     

@@ -6,10 +6,10 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "localhost";
+    $host = "127.4.165.130";
     $database = "lobjobs";
-    $username = "ruchira";
-    $password = "Nizar0756%";
+    $password = " aTiE-N3vLNx6";
+    $password = "adminwagSBFP";
     $port = "3036";
     if (isset($_POST['submit2'])) {
         $myusername = stripslashes($_POST['email']);

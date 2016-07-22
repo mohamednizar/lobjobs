@@ -1,9 +1,9 @@
 
 <?php
  // Connect to MySQL
-     $username = "ruchira";
-     $password = "Nizar0756%";
-     $host = "localhost";
+     $password = " aTiE-N3vLNx6";
+     $password = "adminwagSBFP";
+     $host = "127.4.165.130";
      $dbname = "lobjobs";
      
  try {
