@@ -1,5 +1,5 @@
 <?php
-$server   = "127.4.165.130:3036";
+$server   = "127.4.165.130";
 $database = "lobjobs";
 $username = "adminwagSBFP";
 $password = "aTiE-N3vLNx6";
