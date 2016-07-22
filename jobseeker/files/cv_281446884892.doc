@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml"><style>
+.greenDiv{
+  
+    background-color: green ;
+    
+}
+h4{
+    background-color: #428bca;
+    color:#ffffff;
+    border-radius: 6px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    
+}
+tr{
+    line-height: 10px;
+}
+
+</style>
+</head>
+<body>
+
+    <a href="http://lobjobs.lk/admin/image.php?id=28" alt="..." class="img-thumbnail" width="100px" height="100px">Get Image</a>
+	
+ 
+	
+    <h4>Personal Information </h4><div>Positions       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:Construction / Architect  / Quantity Surveying -Construction ,Construction / Architect  / Quantity Surveying -Architect,</div><div>Name            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Date of Birth   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Sex             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Marrid Status   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Nationality     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Preferred Salary&nbsp&nbsp&nbsp:</div><div>Contact No      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Address         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</div><div>Email           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:root@gmail.com</div><table><thead><h4>O/L Information</h4> </thead><th><tr><td>Subject</td><td>Grade</td></tr></th><tbody></tbody></table><table><thead><h4>A/L Information </h4></thead><th><tr><td>Subject</td><td>Grade</td></tr></th><tbody></tbody></table><table><thead><h4>Higher Education <h4> </thead><tbody><th><tr><td>University</td><td>Institute</td><td>Qualification</td><td>Status</td></tr></th><tr><td></td><td></td><td></td><td></td></tbody></table><h4>Language Skills</h4>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Language</th>
+                <th>Speaking</th>
+                <th>Reading</th>
+                <th>Writing</th>
+                <th>Listening</th>
+                <th>Letter Writing</th>
+                <th>Article Writing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>English</th>
+                <td name="ES"  </td>
+                <td name="ER"  </td>
+                <td name="EW"  </td>
+                <td name="EL"  </td>
+                <td name="ELW"  </td>
+                <td name="EAW"  </td>
+
+
+            </tr>
+            <tr>
+                <th>Sinhala</th>
+                <td name="SS"  </td>
+                <td name="SR"  </td>
+                <td name="SW"  </td>
+                <td name="SL"  </td>
+                <td name="SLW"  </td>
+                <td name="SAW"  </td>
+            </tr>
+            <tr>
+                <th>Tamil</th>
+                <td name="TS"  </td>
+                <td name="TR"  </td>
+                <td name="TW"  </td>
+                <td name="TL"  </td>
+                <td name="TLW"  </td>
+                <td name="TAW"  </td>
+            </tr>
+            <tr>
+                <th>Arabic</th>
+                <td name="AS"  </td>
+                <td name="AR"  </td>
+                <td name="AW"  </td>
+                <td name="AL"  </td>
+                <td name="ALW"  </td>
+                <td name="AAW"  </td>
+            </tr>
+            <tr>
+                <th>Hindi</th>
+                <td name="HS"  </td>
+                <td name="HR"  </td>
+                <td name="HW"  </td>
+                <td name="HL"  </td>
+                <td name="HLW"  </td>
+                <td name="HAW"  </td>
+            </tr>
+            <tr>
+                <th>Urudu</th>
+                <td name="US"  </td>
+                <td name="UR"  </td>
+                <td name="UW"  </td>
+                <td name="UL"  </td>
+                <td name="ULW"  </td>
+                <td name="UAW"  </td>
+            </tr>
+            <tr>
+                <th>French</th>
+                <td name="US"  </td>
+                <td name="UR"  </td>
+                <td name="UW"  </td>
+                <td name="UL"  </td>
+                <td name="ULW"  </td>
+                <td name="UAW"  </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table><thead><h4>Computer Skills</h4></thead><tbody><th><tr><td>Skill</td><td>Experience Level</td><td>Years</td></tr></th><tr><td></td><td></td><td></td></tr></tbody></table><table><thead><h4>Work Experience</h4></thead><tbody><th><tr><td>Company</td><td>Position</td><td>Years</td></tr></th><tr><td></td><td></td><td></td></tr></tbody></table>
+    <div>
+    <table><thead><h4>Driving Skills</h4></thead><tbody><tr><td></td></tr></tbody></table><table><thead><h4>Suburbs knowledge</h4></thead><tbody><tr><td></td></tr></tbody></table>    
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+ 
+  <div class="panel-body">
+				<div class="list-group">
+				<button type="button" class="btn btn-primary list-group-item active" data-toggle="collapse" data-target="#OFFICE">
+				MS OFFICE
+				</button>
+				<div id="OFFICE" class="collapse in">
+				<a href="#" class="list-group-item">M S Word </a>
+				<a href="#" class="list-group-item">M S Excel</a>
+				<a href="#" class="list-group-item">M S Access </a>
+				<a href="#" class="list-group-item">Power Point</a>
+				<a href="#" class="list-group-item">Internet & Email</a>
+				</div>
+				</div>
+  </div>
+  <div class="panel-body">
+				<div class="list-group">
+				<button type="button" class="btn btn-primary list-group-item active" data-toggle="collapse" data-target="#Accounting">
+				Computer Accounting
+				</button>
+				<div id="Accounting" class="collapse out">
+				<a href="#" class="list-group-item">Tally</a>
+				<a href="#" class="list-group-item">Quick Book</a>
+				<a href="#" class="list-group-item">M Y O B</a>
+				<a href="#" class="list-group-item">ACCPACC</a>
+				<a href="#" class="list-group-item">SAGE</a>
+				<a href="#" class="list-group-item">Peachtree</a>
+				</div>
+				</div>
+  </div>
+  <div class="panel-body">
+				<div class="list-group">
+				<button type="button" class="btn btn-primary list-group-item active" data-toggle="collapse" data-target="#Graphic">
+				Graphic Designing
+				</button>
+				<div id="Graphic" class="collapse out">
+				<a href="#" class="list-group-item">Adobe Page Maker</a>
+				<a href="#" class="list-group-item">Adobe Photo Shop</a>
+				<a href="#" class="list-group-item">Corel Draw</a>
+				<a href="#" class="list-group-item">Corel Photo Paint</a>
+				<a href="#" class="list-group-item">Flash MX</a>
+				<a href="#" class="list-group-item">Photo 2 vcd</a>
+				<a href="#" class="list-group-item">Illustrator</a>
+				</div>
+				</div>
+  </div>
+  <div class="panel-body">
+				<div class="list-group">
+				
+				<button type="button" class="btn btn-primary list-group-item active" data-toggle="collapse" data-target="#Web">
+				Web Designing
+				</button>
+				<div id="Web" class="collapse out">
+
+				<a href="#" class="list-group-item">Html</a>
+				<a href="#" class="list-group-item">Macromedia Flash</a>
+				<a href="#" class="list-group-item">Dream Weaver</a>
+				<a href="#" class="list-group-item">Dream Weaver</a>
+				</div>
+				</div>
+  </div>
+  
+</div>
+	

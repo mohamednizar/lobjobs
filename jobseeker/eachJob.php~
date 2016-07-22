@@ -1,0 +1,78 @@
+<?php
+ 
+include_once "../config/header.php";
+include_once "../config/db.class.php";
+
+
+if (!isset($_SESSION['username'])) {
+ 
+   redirect('signin.php?cat=org');
+      
+}
+
+?>
+
+<div class="container">
+
+
+          	 
+
+
+<div class="vacancies">
+		
+      <?php
+
+      $id= $_GET['id'];
+      
+			$data = mysql_query("SELECT * FROM vacancies WHERE id ='$id' ") 
+			or die(mysql_error()); 
+			while($info = mysql_fetch_array( $data )) 
+			{ 
+			$jobid =$info['id'];
+			$jobCat =$info['jobCat'];
+			$jobPos =$info['jobPos'];
+			$jobRes =$info['jobRes'];
+			$jobQua =$info['jobQua'];
+			$jobGen =$info['jobGen'];
+			$jobSal =$info['jobSal'];
+			$jobLoc =$info['jobLoc'];
+			$jobInd =$info['jobInd'];
+			$jobAdress =$info['jobAdress'];
+			$jobTime =$info['jobTime'];
+            
+
+
+			?>
+<div class="container">
+<div class="row">
+<br>
+<span class='position raw top_head'> <h1>Job Id: <?php  echo $jobid; ?></h1><br></span>
+<div class="position col-md-3"> Position</div><div class="position col-md-9">: <?php  echo $jobPos; ?></div>
+<div class='position col-md-3'> Location</div><div class="position col-md-9">: <?php  echo $jobLoc; ?></div>
+<div class='position col-md-3'> Job Catergory </div><div class="position col-md-9">		: <?php  echo $jobCat; ?></span>
+<div class='position col-md-3'> Qualifications </div><div class="position col-md-9">	: <?php  echo $jobQua; ?></span>
+<div class='position col-md-3'> Responsibilities</div><div class="position col-md-9"> 	: <?php  echo $jobRes; ?></span>
+<div class='position col-md-3'> Gender 		</div><div class="position col-md-9">		: <?php  echo $jobGen; ?></span>
+<div class='position col-md-3'> Salary 		</div><div class="position col-md-9">		: <?php  echo $jobSal; ?></span>
+<div class='position col-md-3'> Industry 	</div><div class="position col-md-9">		: <?php  echo $jobInd; ?></span>
+<div class='position col-md-3'> Address </div><div class="position col-md-9">				: <?php  echo $jobAdress; ?></span>
+<div class='position col-md-3'> Time 	</div><div class="position col-md-9">				: <?php  echo $jobTime; ?></span>
+
+
+
+
+
+
+      
+    
+<?php
+
+		}
+			?>
+    
+</div>
+			
+		
+
+</div>
+</div>

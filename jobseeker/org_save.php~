@@ -1,0 +1,21 @@
+<?php
+
+include_once "../config/db.class.php";
+
+$cname = $_POST["cname"];
+$phone = $_POST["phone"];
+$web = $_POST["web"];
+$address = $_POST["address"];
+$cperson = $_POST["cperson"];
+$designation = $_POST["designation"];
+$mobile = $_POST["mobile"];
+$user = $_POST["user"];
+$pass = $_POST["pass"];
+ $pass = hash('sha512', $pass);
+
+$query = ("INSERT INTO org_info (id,cname,phone,address,website,cperson,designation,moblie,username,password,active) VALUES ('','$cname','$phone','$address' ,'$web','$cperson','$designation','$mobile','$user','$pass','1')");
+$data = mysql_query($query)
+        or die(mysql_error());
+
+echo 'Login with your details and start searching Cvs';
+?>

@@ -1,0 +1,8 @@
+[31-Aug-2015 16:57:27 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 66584576 bytes) in /home/lobjobs/public_html/admin/banner.php on line 137
+[31-Aug-2015 16:59:03 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 66846720 bytes) in /home/lobjobs/public_html/admin/banner.php on line 137
+[04-Sep-2015 08:24:11 UTC] PHP Fatal error:  Call to undefined function redirect() in /home/lobjobs/public_html/admin/cv_gen.php on line 5
+[04-Sep-2015 08:24:20 UTC] PHP Fatal error:  Call to undefined function redirect() in /home/lobjobs/public_html/admin/cv_gen.php on line 5
+[04-Sep-2015 08:24:27 UTC] PHP Fatal error:  Call to undefined function redirect() in /home/lobjobs/public_html/admin/cv_gen.php on line 5
+[04-Sep-2015 08:24:34 UTC] PHP Fatal error:  Call to undefined function redirect() in /home/lobjobs/public_html/admin/cv_gen.php on line 5
+[04-Sep-2015 08:25:43 UTC] PHP Fatal error:  Call to undefined function redirect() in /home/lobjobs/public_html/admin/cv_gen.php on line 5
+[25-Jan-2016 01:25:03 UTC] PHP Fatal error:  Call to undefined function now() in /home/lobjobs/public_html/admin/visiting.php on line 7
