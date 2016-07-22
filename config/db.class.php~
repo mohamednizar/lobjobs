@@ -1,16 +1,15 @@
 <?php
-$server   = "127.13.70.130:3036";
+$server   = "127.4.165.130:3036";
 $database = "lobjobs";
-$username = "adminALvIq7k";
-$password = "YJcrW76tbMj2";
+$username = "adminwagSBFP";
+$password = "aTiE-N3vLNx6";
 
 $mysqlConnection = mysql_connect($server, $username, $password);
 if (!$mysqlConnection)
 {
   echo "Please try later.";
 }
-else
-{
+else{
 mysql_select_db($database, $mysqlConnection);
 
 }

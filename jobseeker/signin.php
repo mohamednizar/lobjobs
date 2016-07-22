@@ -8,8 +8,8 @@ include_once "../config/db.class.php";
     <?php
     $host = "localhost";
     $database = "lobjobs";
-    $username = "ruchira";
-    $password = "Nizar0756%";
+    $username = "adminwagSBFP";
+    $password = "aTiE-N3vLNx6";
     $port = "3036";
 
 
