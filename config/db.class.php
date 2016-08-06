@@ -2,7 +2,7 @@
 $server   = "mysql.hostinger.in";
 $database = "u426162963_lob";
 $username = "u426162963_admin";
-$password = "aTiE-N3vLNx6";
+$password = "ICkP5hRudr";
 
 $mysqlConnection = mysql_connect($server, $username, $password);
 if (!$mysqlConnection)
