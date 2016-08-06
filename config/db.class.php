@@ -1,5 +1,5 @@
 <?php
-$server   = "127.4.165.130";
+$server   = "mysql.hostinger.in";
 $database = "u426162963_lob";
 $username = "u426162963_admin";
 $password = "6pgHDcoHxo";
