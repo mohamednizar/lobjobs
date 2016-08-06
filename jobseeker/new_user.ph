@@ -11,7 +11,7 @@ include_once "../config/db.class.php";
 
 
  $host = "mysql.hostinger.in";
-    $database = "lobjobs";
+    $database = "u426162963_lob";
     $password = "ICkP5hRudr";
     $username = "u426162963_admin";
     $port = "3036";

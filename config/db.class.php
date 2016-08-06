@@ -1,6 +1,6 @@
 <?php
 $server   = "mysql.hostinger.in";
-$database = "lobjobs";
+$database = "u426162963_lob";
 $username = "u426162963_admin";
 $password = "aTiE-N3vLNx6";
 
