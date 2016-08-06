@@ -4,13 +4,12 @@ $database = "u426162963_lob";
 $username = "u426162963_admin";
 $password = "6pgHDcoHxo";
 
-$mysqlConnection = mysql_connect($server, $username, $password);
-if (!$mysqlConnection)
-{
-  echo "Please try later.";
-}
-else{
-mysql_select_db($database, $mysqlConnection);
+$mysqlConnection = mysqli_connect($server, $username, $password,$database);
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+mysqli_select_db($mysqlConnection,$database);
 
-}
+mysqli_close($con);
 ?>
