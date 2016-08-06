@@ -26,9 +26,9 @@ if (!isset($_SESSION['username'])) {
 
       $id= $_GET['id'];
       
-			$data = mysql_query("SELECT * FROM vacancies WHERE id ='$id' ") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM vacancies WHERE id ='$id' ") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$jobid =$info['id'];
 			$jobCat =$info['jobCat'];
@@ -47,8 +47,8 @@ if (!isset($_SESSION['username'])) {
 				
 				$query=("DELETE FROM vacancies WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
     

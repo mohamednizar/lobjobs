@@ -27,17 +27,17 @@ if (isset($_GET['app'])) {
     if ($approve == "approve") {
 
         $query = ("UPDATE user_info SET active='1' WHERE id='$id'");
-        $data = mysql_query($query)
-                or die(mysql_error());
+        $data = mysqli_query($query)
+                or die(mysqli_error());
          $select_vacant = "SELECT  * FROM seeker_vacant WHERE seeker_id = '$id'";
-         $q = mysql_query($select_vacant) or  die(mysql_error());
+         $q = mysqli_query($select_vacant) or  die(mysqli_error());
          
-         $r = mysql_fetch_array($q);
+         $r = mysqli_fetch_array($q);
          $vacant = $r['vacant_id'];
                 
          $quary = "SELECT org_info.*,vacancies.* FROM org_info INNER JOIN vacancies ON vacancies.Orgid = org_info.id WHERE vacancies.id = $vacant" ;
-                $d = mysql_query($quary);	
-                $result = mysql_fetch_array($d);
+                $d = mysqli_query($quary);	
+                $result = mysqli_fetch_array($d);
                 $email = $result['username'];
                 $org_id = $result['Orgid'];
                 $to = $email;
@@ -62,8 +62,8 @@ if (isset($_GET['app'])) {
     if ($approve == "back") {
 
         $query = ("UPDATE user_info SET active='0' WHERE id='$id'");
-        $data = mysql_query($query)
-                or die(mysql_error());
+        $data = mysqli_query($query)
+                or die(mysqli_error());
          header("Location:cv_gen.php?id=".$id."&org");
     }
 }
@@ -76,9 +76,9 @@ if (isset($_GET['id'])) {
 
 
 
-$data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+$data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $basic_info = ($info['basic_info']);
     $email = ($info['user_name']);
     $apply_positions = ($info['cat']);
@@ -186,8 +186,8 @@ while ($info = mysql_fetch_array($data)) {
 				
 				$query=("DELETE FROM vacancies WHERE id='$id' AND status='a' ");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
@@ -197,10 +197,10 @@ while ($info = mysql_fetch_array($data)) {
 				
 				}
 			
-            $data = mysql_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid ORDER BY vacancies.updateTime DESC") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid ORDER BY vacancies.updateTime DESC") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
                  echo "<tr id='".$info[0]."'>";
                  echo "<td>".$info[0]."</td>";
                 echo "<td>".$info[1]."</td>";
@@ -282,9 +282,9 @@ while ($info = mysql_fetch_array($data)) {
                 <div class="col-md-6">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 0 ,20") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 0 ,20") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -326,9 +326,9 @@ while ($info = mysql_fetch_array($data)) {
 		<div class="col-md-6">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 20 ,43") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 20 ,43") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -455,8 +455,8 @@ while ($info = mysql_fetch_array($data)) {
                                         <?php
                                         $data2 = "SELECT vacancies.id , vacancies.jobPos, vacancies.jobLoc
 FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_id WHERE seeker_id ='$id'";
-                                        $vacncies = mysql_query($data2);
-                                        while ($vacan_seeker = mysql_fetch_row($vacncies)) {
+                                        $vacncies = mysqli_query($data2);
+                                        while ($vacan_seeker = mysqli_fetch_row($vacncies)) {
                                             $vacan_seeker_array = explode('|', $vacan_seeker);
                                             if (!isset($vacan_seeker)) {//removing the offset error
                                                 $vacan_seeker = null;

@@ -8,8 +8,8 @@ $query=("UPDATE user_info SET Incname='$Incname'  WHERE id='$id'");
 
 
 
-$data = mysql_query($query) 
-or die(mysql_error()); 
+$data = mysqli_query($query) 
+or die(mysqli_error()); 
 
 
 

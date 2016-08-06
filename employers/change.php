@@ -1,13 +1,13 @@
 
 <?php
- // Connect to MySQL
+ // Connect to mysqli
      $password = "ICkP5hRudr";
      $username = "u426162963_admin";
-     $host = "mysql.hostinger.in";
+     $host = "mysqli.hostinger.in";
      $dbname = "lobjobs";
      
  try {
- $conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username,
+ $conn = new PDO("mysqli:host={$host};dbname={$dbname};charset=utf8", $username,
 $password);
  }
  catch(PDOException $ex)

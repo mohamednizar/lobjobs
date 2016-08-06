@@ -30,13 +30,13 @@
                     	$id = $_GET['id'];
 			$today = date("Y-m-d");
 			
-			$count = mysql_query("INSERT INTO logincount(org_id,date, cvsearchcount) VALUES ('$id','$today ',1) ON DUPLICATE KEY UPDATE cvsearchcount=cvsearchcount+1")
-			                            or die(mysql_error());
+			$count = mysqli_query("INSERT INTO logincount(org_id,date, cvsearchcount) VALUES ('$id','$today ',1) ON DUPLICATE KEY UPDATE cvsearchcount=cvsearchcount+1")
+			                            or die(mysqli_error());
 			}  
-                    $data = mysql_query("SELECT * FROM applying_cat")
-                            or die(mysql_error());
+                    $data = mysqli_query("SELECT * FROM applying_cat")
+                            or die(mysqli_error());
 							
-                    while ($info = mysql_fetch_array($data)) {
+                    while ($info = mysqli_fetch_array($data)) {
                         $cat = $info['cat'];
                         $areas = $info['areas'];
                         
@@ -215,10 +215,10 @@
             <?php
             $qualified_ol = false;
             $qualified_al = false;
-            $data = mysql_query("SELECT * FROM user_info  WHERE active='1' and NOT find_in_set ('$id', cast(NIncname as char)) ORDER BY updateTime DESC LIMIT 200 ") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM user_info  WHERE active='1' and NOT find_in_set ('$id', cast(NIncname as char)) ORDER BY updateTime DESC LIMIT 200 ") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
                 ?>
                 <tr class="info" >				
                     <?php

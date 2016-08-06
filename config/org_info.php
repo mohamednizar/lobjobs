@@ -29,10 +29,10 @@ include_once "../config/header.php";
             <?php
             include_once "../config/db.class.php";
 
-            $data = mysql_query("SELECT * FROM org_info") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM org_info") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
           
                 echo "<td>".$info[1]."</td>";
                 echo "<td>".$info[2]."</td>";

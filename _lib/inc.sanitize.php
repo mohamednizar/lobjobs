@@ -55,7 +55,7 @@ function _sanitize($data) {
   $data = preg_replace('/([\x00-\x08][\x0b-\x0c][\x0e-\x20])/', '', $data);
 
   $data = preg_replace("|\.\./|",'', $data);     // stop directory traversal
-  $data = preg_replace("/--/",' - ', $data);     // stop mySQL comments
+  $data = preg_replace("/--/",' - ', $data);     // stop mysqli comments
   $data = preg_replace("/%3A%2F%2F/",'', $data); // stop B64 encoded '://'
 
   // Remove Null Characters

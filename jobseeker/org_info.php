@@ -45,32 +45,32 @@ include_once "../config/header.php";
 				
 				$query=("DELETE FROM org_info WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="approve"){
 				
 				$query=("UPDATE org_info SET active='1' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				else
 				{
 				$query=("UPDATE org_info SET active='0' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				}
 			
-            $data = mysql_query("SELECT * FROM org_info") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM org_info") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
                  echo "<tr>";
                 echo "<td>".$info[1]."</td>";
                 echo "<td>".$info[2]."</td>";

@@ -9,10 +9,10 @@ $referrence = $_POST['referrence'];
 
 $sql = "INSERT INTO  account_control (id,start_date,end_date,type,referrence) VALUES ('$id','$sdate','$edate','$type','$reference') ON DUPLICATE KEY UPDATE  start_date ='$sdate' ,end_date = '$edate',type='$type',referrence='$referrence'  ";
 
-$data = mysql_query($sql)
- or die(mysql_error()); 
+$data = mysqli_query($sql)
+ or die(mysqli_error()); 
  
- if (mysql_affected_rows() >= 1) {
+ if (mysqli_affected_rows() >= 1) {
     $response_array['status'] = 'success';
     header('Content-type: application/json');
     echo json_encode($response_array);

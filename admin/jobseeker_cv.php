@@ -29,16 +29,16 @@ include_once "../config/db.class.php";
 		include_once "./config/db.class.php";
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE active='1' ORDER BY updateTime DESC ") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE active='1' ORDER BY updateTime DESC ") //query the databse 
+		or die(mysqli_error()); 
 		}
 		if (($_GET["id"])=="nactive"){
 
 		include_once "./config/db.class.php";
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE active='0' ORDER BY updateTime DESC ") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE active='0' ORDER BY updateTime DESC ") //query the databse 
+		or die(mysqli_error()); 
 			
 			}
 		if (isset($_GET['app'])){
@@ -47,16 +47,16 @@ include_once "../config/db.class.php";
 				
 				$query=("DELETE FROM user_info WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="back") {
 					$id = $_GET['id'];
 				        $query = ("UPDATE user_info SET active='0' WHERE id='$id'");
-				        $data = mysql_query($query)
-				                or die(mysql_error());
+				        $data = mysqli_query($query)
+				                or die(mysqli_error());
 				                
 				                header("Location:jobseeker_cv.php?id=nactive");
 				
@@ -67,7 +67,7 @@ include_once "../config/db.class.php";
 				}		
 			
 			
-			while($info = mysql_fetch_array( $data )) {
+			while($info = mysqli_fetch_array( $data )) {
 			?>
 				    <tr class="info">				
 			<?php

@@ -49,40 +49,40 @@ $link = 'submitjob.php?userid='.$id ;
 				
 				$query=("DELETE FROM vacancies WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="approve"){
 				
 				$query=("UPDATE vacancies SET active='1' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="refresh"){
 				
 				$query=("UPDATE vacancies SET updateTime=now() WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="dis"){
 				$query=("UPDATE vacancies SET active='0' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				}
 	    $orgid=$_GET['id'];
-            $data = mysql_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid  WHERE vacancies.Orgid='$orgid' ORDER BY vacancies.updateTime DESC") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid  WHERE vacancies.Orgid='$orgid' ORDER BY vacancies.updateTime DESC") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
                  echo "<tr>";
                  echo "<td>".$info[0]."</td>";
                 echo "<td>".$info[1]."</td>";

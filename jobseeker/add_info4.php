@@ -20,9 +20,9 @@ include_once "../config/header.php";
 
                         <option value="0">Select Subject</option>
                         <?php
-                        $data = mysql_query("SELECT * FROM subjects_ol")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM subjects_ol")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
                             $sub_ol = preg_replace('/\s+/', '_', $info['subject_name']);
                             ?>
 
@@ -82,9 +82,9 @@ include_once "../config/header.php";
 
                         <option value="">Select Subject</option>
                         <?php
-                        $data = mysql_query("SELECT * FROM subjects_al")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM subjects_al")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
                             $sub = preg_replace('/\s+/', '_', $info['subject_name']);
                             ?>
 

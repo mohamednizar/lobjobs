@@ -3,7 +3,7 @@ include_once "../config/header.php";
 include_once "../config/db.class.php";
 
 
-$host = "mysql.hostinger.in";
+$host = "mysqli.hostinger.in";
 $database = "u426162963_lob";
 $password = "ICkP5hRudr";
 $username = "u426162963_admin";
@@ -12,26 +12,26 @@ $port = "3036";
 if (isset($_POST['email'])) {
 
 
-    $email = mysql_real_escape_string(stripslashes($_POST['email']));
-    $mysqli = new mysqli($host, $username, $password, $database, $port);
+    $email = mysqli_real_escape_string(stripslashes($_POST['email']));
+    $mysqlii = new mysqlii($host, $username, $password, $database, $port);
     $data = ("SELECT * FROM org_info where username='$email'");
-    $rest = jobseeker($email, $mysqli);
+    $rest = jobseeker($email, $mysqlii);
     echo $rest;
     if ($rest) {
-        $result = mysql_query($data);
+        $result = mysqli_query($data);
 
 
-        $Results = mysqli_fetch_array($result);
+        $Results = mysqlii_fetch_array($result);
         echo count($Results);
     }
 } else {
 
 }
 
-function jobseeker($email, $mysqli) {
+function jobseeker($email, $mysqlii) {
 
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT id, user_name
+    if ($stmt = $mysqlii->prepare("SELECT id, user_name
         FROM org_info
        WHERE username = ?
         LIMIT 1")) {
@@ -54,7 +54,7 @@ function jobseeker($email, $mysqli) {
             $message = "Your password reset link send to your e-mail address.";
             $quary = "UPDATE org_info SET encrypt = '".$encrypt."' WHERE username = '".$email."'" ;
                 $to = $email;
-                mysql_query($quary);
+                mysqli_query($quary);
             $subject = "Forget Password";
             $from = 'accounts@lobjobs.lk';
             $body = 'Hi, <br/> <br/>Your Membership ID is ' . $Results['id'] . ' <br><br>Click here to reset your password http://www.lobjobs.lk/jobseeker/reset.php?encrypt=' . $encrypt . '&action=reset   <br/> <br/>--<br>lobjobs.lk<br>Solve your problems.';

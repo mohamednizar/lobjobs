@@ -26,8 +26,8 @@ if($_POST["action"]=="upload")
 			if ($fileExt=="png" || $fileExt=="jpg" || $fileExt=="JPG" || $fileExt=="PNG" ){
 			$query=("INSERT banner_info (org_id,banner_info) VALUES('$id','$Filename')");
 
-			mysql_query($query) 
-			or die(mysql_error()); 
+			mysqli_query($query) 
+			or die(mysqli_error()); 
 
 			}
 			

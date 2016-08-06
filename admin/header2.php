@@ -20,9 +20,9 @@ if (!isset($_SESSION['username'])) {
     <div class="col-md-12">
         <br>
         <?php
-        $data = mysql_query("SELECT * FROM org_info WHERE id='$id'")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+        $data = mysqli_query("SELECT * FROM org_info WHERE id='$id'")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $basic_info = ($info['basic_info']);
 
     $basic_info_array = explode('|', $basic_info);

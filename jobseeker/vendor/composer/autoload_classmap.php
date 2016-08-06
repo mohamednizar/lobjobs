@@ -2495,7 +2495,7 @@ return array(
     'Google_Service_SQLAdmin_IpConfiguration' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
     'Google_Service_SQLAdmin_IpMapping' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
     'Google_Service_SQLAdmin_LocationPreference' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
-    'Google_Service_SQLAdmin_MySqlReplicaConfiguration' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
+    'Google_Service_SQLAdmin_mysqliReplicaConfiguration' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
     'Google_Service_SQLAdmin_OnPremisesConfiguration' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
     'Google_Service_SQLAdmin_Operation' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',
     'Google_Service_SQLAdmin_OperationError' => $vendorDir . '/google/apiclient/src/Google/Service/SQLAdmin.php',

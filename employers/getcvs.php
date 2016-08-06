@@ -5,15 +5,15 @@ include_once "../config/db.class.php";
 			$id = $_POST['id'];
 			$today = date("Y-m-d");
 			
-			$count = mysql_query("INSERT INTO logincount(org_id,date, cvsearch) VALUES ('$id','$today ',1) ON DUPLICATE KEY UPDATE cvsearch=cvsearch+1")
-			                            or die(mysql_error());
+			$count = mysqli_query("INSERT INTO logincount(org_id,date, cvsearch) VALUES ('$id','$today ',1) ON DUPLICATE KEY UPDATE cvsearch=cvsearch+1")
+			                            or die(mysqli_error());
 
 
 		
 		
 		$query_get_all="SELECT * FROM user_info WHERE active='1' and NOT find_in_set ('$id', cast(NIncname as char)) ORDER BY updateTime DESC";	//get catagory and id of the row
-		$get_all_cat = mysql_query($query_get_all) 
-		or die(mysql_error()); 
+		$get_all_cat = mysqli_query($query_get_all) 
+		or die(mysqli_error()); 
 		
 		$user_areas=$_POST['areas'];					//get the user selected data from the form
 		$user_areas= explode(',',$user_areas);			//seperate the ctagories from the comma
@@ -29,7 +29,7 @@ include_once "../config/db.class.php";
 		for ($y=0; $y<=$result_select; $y++)			// strat the user selected catagories
 	{
 		$user_areas[$y] = preg_replace('/\s+/', '', $user_areas[$y]); // remove the spaces of the user selected to make the string easier to search  
-		while($row = mysql_fetch_array($get_all_cat))				  		
+		while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		foreach($rows as $row){ 
 		
@@ -58,7 +58,7 @@ include_once "../config/db.class.php";
 		
 	for ($c=0; $c<$result_location; $c++)			// strat the user selected catagories
 	{
-	while($row = mysql_fetch_array($get_all_cat))				  		
+	while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		foreach($rows as $row){ 
 		$locations= explode('|',$row['basic_info']);	
@@ -88,7 +88,7 @@ include_once "../config/db.class.php";
 
 	for ($t=0; $t<$user_pro_count; $t++)			
 	{	
-	while($row = mysql_fetch_array($get_all_cat))				  		
+	while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		foreach($rows as $row){ 
 		$quolifications= explode(',',$row['quolifications']);	
@@ -138,11 +138,11 @@ include_once "../config/db.class.php";
 		
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE active='1' AND  id='$row' ORDER BY id DESC LIMIT 20") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE active='1' AND  id='$row' ORDER BY id DESC LIMIT 20") //query the databse 
+		or die(mysqli_error()); 
 			
 			
-			while ($info = mysql_fetch_array($data)) {
+			while ($info = mysqli_fetch_array($data)) {
                 ?>
                 <tr class="info">				
                     <?php

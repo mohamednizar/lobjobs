@@ -15,9 +15,9 @@ if(function_exists('date_default_timezone_set')){ // the if function checks if s
     <?php
     
  
-                    $data = mysql_query("SELECT * FROM org_info WHERE 1 and logo!='NULL' ORDER BY id DESC")
-or die(mysql_error());
-while($row = mysql_fetch_assoc($data))
+                    $data = mysqli_query("SELECT * FROM org_info WHERE 1 and logo!='NULL' ORDER BY id DESC")
+or die(mysqli_error());
+while($row = mysqli_fetch_assoc($data))
 {
 	$logo = $row['logo'];
 	if(!$logo==""){
@@ -57,10 +57,10 @@ while($row = mysql_fetch_assoc($data))
 		include_once "config/db.class.php";
 		$qualified_ol=false;
 		$qualified_al=false;
-		   $data = mysql_query("SELECT * FROM user_info  WHERE active='1' and NOT find_in_set ('$id', cast(NIncname as char)) ORDER BY updateTime DESC LIMIT 40 ") or die(mysql_error()); 
+		   $data = mysqli_query("SELECT * FROM user_info  WHERE active='1' and NOT find_in_set ('$id', cast(NIncname as char)) ORDER BY updateTime DESC LIMIT 40 ") or die(mysqli_error()); 
 			
 			
-			while ($info = mysql_fetch_array($data)) {
+			while ($info = mysqli_fetch_array($data)) {
                 ?>
                 <tr class="info">				
                     <?php

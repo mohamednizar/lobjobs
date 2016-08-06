@@ -1,7 +1,7 @@
 <?php
-function login($email, $password, $mysqli) {
+function login($email, $password, $mysqlii) {
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
+    if ($stmt = $mysqlii->prepare("SELECT id, username, password, salt 
         FROM members
        WHERE email = ?
         LIMIT 1")) {
@@ -19,7 +19,7 @@ function login($email, $password, $mysqli) {
             // If the user exists we check if the account is locked
             // from too many login attempts 
  
-            if (checkbrute($user_id, $mysqli) == true) {
+            if (checkbrute($user_id, $mysqlii) == true) {
                 // Account is locked 
                 // Send an email to user saying their account is locked
                 return false;
@@ -46,7 +46,7 @@ function login($email, $password, $mysqli) {
                     // Password is not correct
                     // We record this attempt in the database
                     $now = time();
-                    $mysqli->query("INSERT INTO login_attempts(user_id, time)
+                    $mysqlii->query("INSERT INTO login_attempts(user_id, time)
                                     VALUES ('$user_id', '$now')");
                     return false;
                 }
@@ -82,7 +82,7 @@ function sec_session_start() {
 }
 
 
-function login_check($mysqli) {
+function login_check($mysqlii) {
     // Check if all session variables are set 
     if (isset($_SESSION['user_id'], 
                         $_SESSION['username'], 
@@ -95,7 +95,7 @@ function login_check($mysqli) {
         // Get the user-agent string of the user.
         $user_browser = $_SERVER['HTTP_USER_AGENT'];
  
-        if ($stmt = $mysqli->prepare("SELECT password 
+        if ($stmt = $mysqlii->prepare("SELECT password 
                                       FROM members 
                                       WHERE id = ? LIMIT 1")) {
             // Bind "$user_id" to parameter. 
@@ -130,14 +130,14 @@ function login_check($mysqli) {
     }
 }
 
-function checkbrute($user_id, $mysqli) {
+function checkbrute($user_id, $mysqlii) {
     // Get timestamp of current time 
     $now = time();
  
     // All login attempts are counted from the past 2 hours. 
     $valid_attempts = $now - (2 * 60 * 60);
  
-    if ($stmt = $mysqli->prepare("SELECT time 
+    if ($stmt = $mysqlii->prepare("SELECT time 
                              FROM login_attempts 
                              WHERE user_id = ? 
  

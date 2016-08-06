@@ -10,8 +10,8 @@ $query=("UPDATE user_info SET al_info='$al_info'  WHERE id='$id'");
 
 
 
-$data = mysql_query($query) 
-or die(mysql_error()); 
+$data = mysqli_query($query) 
+or die(mysqli_error()); 
 
 
 

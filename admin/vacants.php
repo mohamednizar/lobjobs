@@ -18,9 +18,9 @@ include_once "./config/db.class.php";
 <?php
 $id = $_GET['id'];
 
-$data = mysql_query("SELECT * FROM vacancies WHERE id ='$id' ")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+$data = mysqli_query("SELECT * FROM vacancies WHERE id ='$id' ")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $jobid = $info['id'];
     $jobCat = $info['jobCat'];
     $jobPos = $info['jobPos'];

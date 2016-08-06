@@ -26,9 +26,9 @@ include_once "config/db.class.php";
 			<div class="col-md-6">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 0 ,20") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 0 ,20") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -69,9 +69,9 @@ include_once "config/db.class.php";
 		<div class="col-md-6">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 20 ,43") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 20 ,43") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];

@@ -8,10 +8,10 @@ $id = $_POST['id'];
 
 $query1="UPDATE user_info SET cat='$cat' WHERE id = '$id'";
 
-$data = mysql_query($query1) 
-or die(mysql_error()); 
+$data = mysqli_query($query1) 
+or die(mysqli_error()); 
 			
-echo (mysql_insert_id());
+echo (mysqli_insert_id());
 
 
 

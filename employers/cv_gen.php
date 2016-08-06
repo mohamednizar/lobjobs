@@ -25,8 +25,8 @@ $org = $_GET['org'];
 
 
 $ac = ("SELECT DATEDIFF(end_date,now()) as period,end_date,start_date,type FROM account_control WHERE id='$org' and  id  IN (SELECT id FROM org_info where track=1 )  ");
-        $d = mysql_query($ac) or die(mysql_error());
-        while ($info2 =mysql_fetch_array($d) ){
+        $d = mysqli_query($ac) or die(mysqli_error());
+        while ($info2 =mysqli_fetch_array($d) ){
         $sdate = $info2['start_date'];
         $edate = $info2['end_date'];
         $type = $info2['type'];
@@ -44,8 +44,8 @@ if (isset($_GET['approve'])) {
     if ($approve == "yes") {
 
         $query = ("UPDATE user_info SET active='1' WHERE id='$id'");
-        $data = mysql_query($query)
-                or die(mysql_error());
+        $data = mysqli_query($query)
+                or die(mysqli_error());
     }
 }
 if (isset($_GET['delete'])) {
@@ -54,8 +54,8 @@ if (isset($_GET['delete'])) {
 
         $query = ("DELETE FROM user_info WHERE id='$id'");
 
-        $data = mysql_query($query)
-                or die(mysql_error());
+        $data = mysqli_query($query)
+                or die(mysqli_error());
     }
 }
 if (isset($_GET['id'])) {
@@ -66,15 +66,15 @@ if (isset($_GET['org']) && isset($_GET['cvview'])){
                     	$orgid = $_GET['org'];
 			$today = date("Y-m-d");
 			
-			$count = mysql_query("INSERT INTO logincount(org_id,date, cvview) VALUES ('$orgid','$today ',1) ON DUPLICATE KEY UPDATE cvview=cvview+1")
-			                            or die(mysql_error());
+			$count = mysqli_query("INSERT INTO logincount(org_id,date, cvview) VALUES ('$orgid','$today ',1) ON DUPLICATE KEY UPDATE cvview=cvview+1")
+			                            or die(mysqli_error());
 			}
 			
 		 
 
-$data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+$data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $basic_info = ($info['basic_info']);
     $email = ($info['user_name']);
     $apply_positions = ($info['cat']);
@@ -183,8 +183,8 @@ while ($info = mysql_fetch_array($data)) {
 				
 				$query=("DELETE FROM vacancies WHERE id='$id' AND status='a' ");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
@@ -194,10 +194,10 @@ while ($info = mysql_fetch_array($data)) {
 				
 				}
             $orgid=$_GET['org'];	
-            $data = mysql_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid WHERE vacancies.Orgid = $orgid ORDER BY vacancies.updateTime DESC") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid WHERE vacancies.Orgid = $orgid ORDER BY vacancies.updateTime DESC") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
                  echo "<tr id='".$info[0]."'>";
                  echo "<td>".$info[0]."</td>";
                 echo "<td>".$info[1]."</td>";
@@ -276,9 +276,9 @@ while ($info = mysql_fetch_array($data)) {
                 <div class="col-md-6">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 0 ,20") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 0 ,20") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -320,9 +320,9 @@ while ($info = mysql_fetch_array($data)) {
 		<div class="col-md-6">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 20 ,43") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 20 ,43") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -441,8 +441,8 @@ while ($info = mysql_fetch_array($data)) {
 
                                         $data2 = "SELECT vacancies.id , vacancies.jobPos, vacancies.jobLoc
 FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_id WHERE seeker_id ='$id' and vacancies.Orgid = '$orgid' ";
-                                        $vacncies = mysql_query($data2);
-                                        while ($vacan_seeker = mysql_fetch_row($vacncies)) {
+                                        $vacncies = mysqli_query($data2);
+                                        while ($vacan_seeker = mysqli_fetch_row($vacncies)) {
                                             $vacan_seeker_array = explode('|', $vacan_seeker);
                                             if (!isset($vacan_seeker)) {//removing the offset error
                                                 $vacan_seeker = null;

@@ -153,11 +153,11 @@ include 'header2.php';
 		$qualified_ol=false;
 		$qualified_al=false;
 		$id = $_GET['id'];
-		$data = mysql_query("SELECT * FROM user_info WHERE 1  ORDER BY updateTime DESC ") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE 1  ORDER BY updateTime DESC ") //query the databse 
+		or die(mysqli_error()); 
 		
 			
-			while($info = mysql_fetch_array( $data )) {
+			while($info = mysqli_fetch_array( $data )) {
 			?>
 				    <tr class="info">				
 			<?php

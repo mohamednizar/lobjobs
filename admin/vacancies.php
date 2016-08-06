@@ -29,48 +29,48 @@
 				
 				$query=("DELETE FROM vacancies WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="approve"){
 				
 				$query=("UPDATE vacancies SET active='1' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="refresh"){
 				
 				$query=("UPDATE vacancies SET updateTime=now() WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="dis"){
 				$query=("UPDATE vacancies SET active='0' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				
 				if (($_GET['app'])=="send"){
 				
 				$query_get_all="SELECT * FROM user_info";	//get catagory and id of the row
-				$get_all_cat = mysql_query($query_get_all) 
-				or die(mysql_error()); 
+				$get_all_cat = mysqli_query($query_get_all) 
+				or die(mysqli_error()); 
 						
 				$query=("UPDATE vacancies SET email_status='1' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				$query2  = ("SELECT * FROM vacancies WHERE id = '$id'");
-				$data2 = mysql_query($query2) 
-				or die(mysql_error()); 
-				  while($info2 = mysql_fetch_array( $data2 )) 
+				$data2 = mysqli_query($query2) 
+				or die(mysqli_error()); 
+				  while($info2 = mysqli_fetch_array( $data2 )) 
 					{
 			        $cat = $info2['jobCat'];
 			        $user_areas = explode('/',$cat);
@@ -83,7 +83,7 @@
 	{
 	//echo $user_areas;
 		$user_areas[$y] = preg_replace('/\s+/', '', $user_areas[$y]); // remove the spaces of the user selected to make the string easier to search  
-		while($row = mysql_fetch_array($get_all_cat))				  		
+		while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		
 		foreach($rows as $row){ 
@@ -115,9 +115,9 @@
     foreach ($array as $row) {
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE  id='$row' ORDER BY id DESC ") //query the databse 
-		or die(mysql_error()); 
-			while ($info = mysql_fetch_array($data)) {
+		$data = mysqli_query("SELECT * FROM user_info WHERE  id='$row' ORDER BY id DESC ") //query the databse 
+		or die(mysqli_error()); 
+			while ($info = mysqli_fetch_array($data)) {
 				//echo $info['user_name'];
                                     $email = $info['user_name'];
                       		    $emails = "";
@@ -244,10 +244,10 @@
 	
 	
 			      
-			        $user = mysql_query("SELECT user_info.*  FROM  user_info  WHERE user_info.cat like '%$cat%' ")
-      or die(mysql_error()); 
+			        $user = mysqli_query("SELECT user_info.*  FROM  user_info  WHERE user_info.cat like '%$cat%' ")
+      or die(mysqli_error()); 
    
-      while($userinfo = mysql_fetch_array( $user )) 
+      while($userinfo = mysqli_fetch_array( $user )) 
 			{
 				$uemail= $userinfo['user_name'];
 				//echo $uemail;
@@ -277,10 +277,10 @@
 							
 							
 			
-            $data = mysql_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid ORDER BY vacancies.updateTime DESC") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT vacancies.*, org_info.* FROM org_info INNER JOIN vacancies ON org_info.id=vacancies.Orgid ORDER BY vacancies.updateTime DESC") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
                  echo "<tr>";
                  echo "<td>".$info[0]."</td>";
                   echo "<td>".$info['jobtype']."</td>";

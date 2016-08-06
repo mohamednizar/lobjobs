@@ -4,7 +4,7 @@ include_once "../config/db.class.php";
 $delet = "DELETE FROM user_info WHERE user_name='NULL'";
 
 
-if (mysql_query($delet)){
+if (mysqli_query($delet)){
 $cat=$_POST["cat_info"];
 $username = "NULL";
 
@@ -14,10 +14,10 @@ $query1="INSERT INTO user_info (id,cat,basic_info,ol_info,al_info,pro_info,lan_i
 
 
 
-$data = mysql_query($query1) 
-or die(mysql_error()); 
+$data = mysqli_query($query1) 
+or die(mysqli_error()); 
 			
-echo (mysql_insert_id());
+echo (mysqli_insert_id());
 
 }
 

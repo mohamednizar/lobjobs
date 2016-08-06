@@ -6,7 +6,7 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "mysql.hostinger.in";
+    $host = "mysqli.hostinger.in";
     $database = "u426162963_lob";
     $username = "u426162963_admin";
     $password = "ICkP5hRudr";
@@ -22,18 +22,18 @@ include_once "../config/db.class.php";
                 $myusername = stripslashes($_POST['email']);
                 $mypassword = stripslashes($_POST['password']);
                 $jid = $_GET['id'];
-                $myusername = mysql_real_escape_string($myusername);
-                $mypassword = mysql_real_escape_string($mypassword);
+                $myusername = mysqli_real_escape_string($myusername);
+                $mypassword = mysqli_real_escape_string($mypassword);
 
-                $mysqli = new mysqli($host, $username, $password, $database, $port)
+                $mysqlii = new mysqlii($host, $username, $password, $database, $port)
                         or die('no connection to server');
-                $login_suc = login($myusername, $mypassword, $mysqli);
+                $login_suc = login($myusername, $mypassword, $mysqlii);
                 if ($login_suc) {
 
-                    $data = mysql_query("SELECT id FROM org_info WHERE username='$myusername' ")
+                    $data = mysqli_query("SELECT id FROM org_info WHERE username='$myusername' ")
 
-                            or die(mysql_error());
-                    $info = mysql_fetch_array($data);
+                            or die(mysqli_error());
+                    $info = mysqli_fetch_array($data);
 
 
                     $id = $info['id'];
@@ -44,17 +44,17 @@ include_once "../config/db.class.php";
                 }
             } else {
 
-                $myusername = mysql_real_escape_string($_POST['email']);
-                $mypassword = mysql_real_escape_string($_POST['password']);
+                $myusername = mysqli_real_escape_string($_POST['email']);
+                $mypassword = mysqli_real_escape_string($_POST['password']);
 
-                $mysqli_job = new mysqli($host, $username, $password, $database, $port)
+                $mysqlii_job = new mysqlii($host, $username, $password, $database, $port)
                         or die('no connection to server');
                         
-                $jobseeker = jobseeker($myusername, $mypassword, $mysqli_job);
+                $jobseeker = jobseeker($myusername, $mypassword, $mysqlii_job);
                 if ($jobseeker) {
-                    $data = mysql_query("SELECT id FROM user_info WHERE user_name='$myusername'")
-                            or die(mysql_error());
-                    $info = mysql_fetch_array($data);
+                    $data = mysqli_query("SELECT id FROM user_info WHERE user_name='$myusername'")
+                            or die(mysqli_error());
+                    $info = mysqli_fetch_array($data);
                     $id = $info['id'];
 
    
@@ -70,25 +70,25 @@ include_once "../config/db.class.php";
                     
 
                     if (isset($_GET['id'])) {
-                        $data = mysql_query("SELECT id FROM user_info WHERE user_name='$myusername'")
-                                or die(mysql_error());
+                        $data = mysqli_query("SELECT id FROM user_info WHERE user_name='$myusername'")
+                                or die(mysqli_error());
                         $vacant = $_GET['id'];
-                        $info = mysql_fetch_array($data);
+                        $info = mysqli_fetch_array($data);
                         $id = $info['id'];
 
                         $add_vacant = "INSERT INTO seeker_vacant(vacant_id,seeker_id) "
                                 . "VALUES('$vacant','$id')";
-                        mysql_query($add_vacant);
+                        mysqli_query($add_vacant);
                     }
                 }
             }
         }
     }
 
-    function jobseeker($email, $password, $mysqli) {
+    function jobseeker($email, $password, $mysqlii) {
 
         // Using prepared statements means that SQL injection is not possible. 
-        if ($stmt = $mysqli->prepare("SELECT id, user_name, password 
+        if ($stmt = $mysqlii->prepare("SELECT id, user_name, password 
         FROM user_info
        WHERE user_name = ?
         LIMIT 1")) {
@@ -129,7 +129,7 @@ include_once "../config/db.class.php";
                     // Password is not correct
                     // We record this attempt in the database
                     // $now = time();
-                    //$mysqli->query("INSERT INTO login_attempts(user_id, time)
+                    //$mysqlii->query("INSERT INTO login_attempts(user_id, time)
                     //VALUES ('$user_id', '$now')");
                     return false;
                 }

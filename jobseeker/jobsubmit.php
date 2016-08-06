@@ -25,9 +25,9 @@ $link = 'submitjob.php?userid='.$id ;
 <div class="vacancies">
 		
       <?php 
-			$data = mysql_query("SELECT * FROM vacancies WHERE Orgid ='$id' ") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM vacancies WHERE Orgid ='$id' ") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$jid =$info['id'];
 			$jobCat =$info['jobCat'];
@@ -46,8 +46,8 @@ $link = 'submitjob.php?userid='.$id ;
 				
 				$query=("DELETE FROM vacancies WHERE id='$jid'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
       $hreflink = "eachJob.php?id=".$jid;

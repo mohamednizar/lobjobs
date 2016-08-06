@@ -9,8 +9,8 @@ include_once "../config/db.class.php";
 /* All form fields are automatically passed to the PHP script through the array $HTTP_POST_VARS. */
 
 
-		$data = mysql_query("SELECT * FROM comments where comments!='' ORDER BY id DESC") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM comments where comments!='' ORDER BY id DESC") //query the databse 
+		or die(mysqli_error()); 
                ?>
 <div class="table-responsive">
         <table class="table  ">
@@ -27,7 +27,7 @@ include_once "../config/db.class.php";
                    
                    <?php
                 
-		while($info = mysql_fetch_array( $data )) {
+		while($info = mysqli_fetch_array( $data )) {
                    $string1 = ($info['comments']);
                    $proinfo = explode(',', $string1);   
                     

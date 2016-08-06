@@ -10,10 +10,10 @@ include_once "../config/db.class.php";
 /* All form fields are automatically passed to the PHP script through the array $HTTP_POST_VARS. */
 
 
-		$data = mysql_query("SELECT * FROM comments") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM comments") //query the databse 
+		or die(mysqli_error()); 
 		
-		while($info = mysql_fetch_array( $data )) {
+		while($info = mysqli_fetch_array( $data )) {
 		
 	
 			echo $info[1] ;

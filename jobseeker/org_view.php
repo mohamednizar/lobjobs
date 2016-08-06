@@ -19,8 +19,8 @@ $back_link ='org_info.php';
 			if ($approve=="yes"){
 			
 			$query=("UPDATE org_info SET active='1' WHERE id='$id'");
-			$data = mysql_query($query) 
-			or die(mysql_error()); 
+			$data = mysqli_query($query) 
+			or die(mysqli_error()); 
 			}
 			}
 			if (isset($_GET['delete'])){
@@ -29,8 +29,8 @@ $back_link ='org_info.php';
 			
 			$query=("DELETE FROM org_info WHERE id='$id'");
 			
-			$data = mysql_query($query) 
-			or die(mysql_error());
+			$data = mysqli_query($query) 
+			or die(mysqli_error());
 			
 			}
 			}
@@ -41,9 +41,9 @@ $back_link ='org_info.php';
 			
 				
 			
-			$data = mysql_query("SELECT * FROM org_info WHERE id='$id'") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) {
+			$data = mysqli_query("SELECT * FROM org_info WHERE id='$id'") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) {
 				$basic_info= ($info['basic_info']);
 				
 					$basic_info_array= explode('|',$basic_info );

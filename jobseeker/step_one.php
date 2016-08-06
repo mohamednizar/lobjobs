@@ -11,8 +11,8 @@ $query=("UPDATE user_info SET basic_info='$basic_info',updateTime=now(),job_type
 
 
 
-$data = mysql_query($query) 
-or die(mysql_error()); 
+$data = mysqli_query($query) 
+or die(mysqli_error()); 
 
 
 

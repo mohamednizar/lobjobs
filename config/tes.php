@@ -4,14 +4,14 @@ $database = "ruchira_lobjobs";
 $username = "ruchira_lobjobs";
 $password = "nimalka123";
 
-$mysqlConnection = mysql_connect($server, $username, $password);
-if (!$mysqlConnection)
+$mysqliConnection = mysqli_connect($server, $username, $password);
+if (!$mysqliConnection)
 {
   echo "Please try later.";
 }
 else
 {
-mysql_select_db($database, $mysqlConnection);
+mysqli_select_db($database, $mysqliConnection);
   echo "good to go.";
 }
 ?>

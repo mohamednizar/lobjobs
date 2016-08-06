@@ -20,8 +20,8 @@ $array_NCN = implode(',',$NIncname);
 $query=("UPDATE user_info SET  lan_info='$lang_info' ,com_info='$computer', pro_info='$pro_qua' ,city_info='$city_info' ,drive_info='$drive_info',Incname='$array_CN',NIncname='$array_NCN' WHERE id='$id'");
 
 
-$data = mysql_query($query) 
-or die(mysql_error()); 
+$data = mysqli_query($query) 
+or die(mysqli_error()); 
 
 
 ?>

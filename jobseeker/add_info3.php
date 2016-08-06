@@ -16,9 +16,9 @@ include_once "../config/header.php";
 				
 				<?php
 				
-			$data = mysql_query("SELECT * FROM org_info ORDER BY cname  ") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM org_info ORDER BY cname  ") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{
 				$cname = $info['cname'];
 				$id = $info['id'];
@@ -35,9 +35,9 @@ include_once "../config/header.php";
 				
 				<?php
 				
-			$data = mysql_query("SELECT * FROM org_info ORDER BY cname") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM org_info ORDER BY cname") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{
 				$cname = $info['cname'];
 				$id = $info['id'];
@@ -208,9 +208,9 @@ include_once "../config/header.php";
 		$i ="";
 		
 				
-					$data = mysql_query("SELECT * FROM courses LIMIT 0, 8") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+					$data = mysqli_query("SELECT * FROM courses LIMIT 0, 8") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 				$link =$info['name'];
 				$no_space_link = preg_replace('/\s+/', '', $link);

@@ -7,9 +7,9 @@ file_put_contents($img, file_get_contents($url));
 
 include_once "../config/db.class.php";
 $id = $_GET['id'];
-$data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+$data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $basic_info = ($info['basic_info']);
     $email = ($info['user_name']);
     $pic= $info['pic_info'];

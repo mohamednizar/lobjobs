@@ -4,6 +4,6 @@ include_once "../config/db.class.php";
 
 $message = $_POST['body'];
 	$query="INSERT INTO comments (id, comments) VALUES ('','$message')";
-	$data = mysql_query($query) 
-			or die(mysql_error()); 
+	$data = mysqli_query($query) 
+			or die(mysqli_error()); 
 ?>

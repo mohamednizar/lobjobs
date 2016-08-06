@@ -23,21 +23,21 @@
 		include_once "./config/db.class.php";
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE active='1' ORDER BY id DESC ") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE active='1' ORDER BY id DESC ") //query the databse 
+		or die(mysqli_error()); 
 		}
 		if (($_GET["id"])=="nactive"){
 
 		include_once "./config/db.class.php";
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE active='0' ORDER BY id DESC ") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE active='0' ORDER BY id DESC ") //query the databse 
+		or die(mysqli_error()); 
 			
 			}
 			
 			
-			while($info = mysql_fetch_array( $data )) {
+			while($info = mysqli_fetch_array( $data )) {
 			?>
 				    <tr class="info">				
 			<?php

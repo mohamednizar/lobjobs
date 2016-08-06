@@ -52,16 +52,16 @@ if (isset($_GET['org'])){
                     	$orgid = $_GET['org'];
 			$today = date("Y-m-d");
 			
-			$count = mysql_query("INSERT INTO logincount(org_id,date,cvdwld) VALUES ('$orgid','$today ',1) ON DUPLICATE KEY UPDATE cvdwld=cvdwld+1")
-			                            or die(mysql_error());
+			$count = mysqli_query("INSERT INTO logincount(org_id,date,cvdwld) VALUES ('$orgid','$today ',1) ON DUPLICATE KEY UPDATE cvdwld=cvdwld+1")
+			                            or die(mysqli_error());
 			}
 
 
 
 $url2 = 'http://lobjobs.lk/admin/image.php?id='.$id;
-$data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+$data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $basic_info = ($info['basic_info']);
     $email = ($info['user_name']);
     

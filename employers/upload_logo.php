@@ -26,8 +26,8 @@ if($_POST["action"]=="upload")
 			if ($fileExt=="png" || $fileExt=="jpg" || $fileExt=="JPG" || $fileExt=="PNG" ){
 			$query=("UPDATE org_info  SET logo='$Filename' WHERE  id = '$id'");
 
-			mysql_query($query) 
-			or die(mysql_error()); 
+			mysqli_query($query) 
+			or die(mysqli_error()); 
 
 			}
 			

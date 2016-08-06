@@ -26,10 +26,10 @@
                 <div class="col-md-12">
 
                     <?php
-                    $data = mysql_query("SELECT * FROM applying_cat")
-                            or die(mysql_error());
+                    $data = mysqli_query("SELECT * FROM applying_cat")
+                            or die(mysqli_error());
 							
-                    while ($info = mysql_fetch_array($data)) {
+                    while ($info = mysqli_fetch_array($data)) {
                         $cat = $info['cat'];
                         $areas = $info['areas'];
                         $link = str_replace(' ', '_', $cat);
@@ -209,9 +209,9 @@
             <?php
             $qualified_ol = false;
             $qualified_al = false;
-            $data = mysql_query("SELECT * FROM user_info WHERE active='1' ORDER BY updateTime DESC LIMIT 200") //query the databse 
-                    or die(mysql_error());
-            while ($info = mysql_fetch_array($data)) {
+            $data = mysqli_query("SELECT * FROM user_info WHERE active='1' ORDER BY updateTime DESC LIMIT 200") //query the databse 
+                    or die(mysqli_error());
+            while ($info = mysqli_fetch_array($data)) {
                 ?>
                 <tr class="info">				
                     <?php

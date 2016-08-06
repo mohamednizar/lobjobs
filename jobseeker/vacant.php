@@ -6,4 +6,4 @@ $vacant = $_POST['id'];
 $seeker = "";
 $quary = "INSERT INTO seeker_vacant(id,vacant_id) "
         . "VALUES('','$vacant')";
-$data = mysql_query($query) or die('failed');
+$data = mysqli_query($query) or die('failed');

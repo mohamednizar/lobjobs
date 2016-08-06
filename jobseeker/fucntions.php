@@ -15,9 +15,9 @@
        
         
         //###################### user login function #############################//
-        function login($email, $password, $mysqli) {
+        function login($email, $password, $mysqlii) {
             // Using prepared statements means that SQL injection is not possible. 
-            if ($stmt = $mysqli->prepare("SELECT id, username, password 
+            if ($stmt = $mysqlii->prepare("SELECT id, username, password 
         FROM org_info
        WHERE username = ? AND active =1
         LIMIT 1")) {
@@ -58,7 +58,7 @@
                         // Password is not correct
                         // We record this attempt in the database
                         // $now = time();
-                        //$mysqli->query("INSERT INTO login_attempts(user_id, time)
+                        //$mysqlii->query("INSERT INTO login_attempts(user_id, time)
                         //VALUES ('$user_id', '$now')");
                         return false;
                     }

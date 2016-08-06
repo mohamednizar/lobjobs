@@ -13,10 +13,10 @@ if((isset($_GET['from'])) && (isset($_GET['to']))){
 $from = $_GET['from'];
 $to = $_GET['to'];
 echo ' Total visiting From '.$from.' to ' .$to;
-$data = mysql_query("SELECT  SUM(logcount) AS sumlogin ,SUM(procount) AS sumprofil ,SUM(cvsearchcount) AS sumcvsearch,SUM(jobsubmitcount) AS sumjobsubmitcount , SUM(bannercount) AS sumbannercount ,SUM(cvview) AS sumcvview,SUM(vacancyview) AS sumvacancyview,SUM(orgincvdwld) AS sumorgincvdwld,SUM(cvdwld) AS sumcvdwld , SUM(cvsearchcount) sumcvsearchcount FROM logincount WHERE org_id = '$id'  and (date BETWEEN '$from' AND '$to') ") or die(mysql_error());
+$data = mysqli_query("SELECT  SUM(logcount) AS sumlogin ,SUM(procount) AS sumprofil ,SUM(cvsearchcount) AS sumcvsearch,SUM(jobsubmitcount) AS sumjobsubmitcount , SUM(bannercount) AS sumbannercount ,SUM(cvview) AS sumcvview,SUM(vacancyview) AS sumvacancyview,SUM(orgincvdwld) AS sumorgincvdwld,SUM(cvdwld) AS sumcvdwld , SUM(cvsearchcount) sumcvsearchcount FROM logincount WHERE org_id = '$id'  and (date BETWEEN '$from' AND '$to') ") or die(mysqli_error());
 	
 
-        while($info = mysql_fetch_array( $data )){
+        while($info = mysqli_fetch_array( $data )){
             $logcount = $info['sumlogin'];
             $procont = $info['sumprofil'];
             $cvsearch = $info['sumcvsearch'];
@@ -110,10 +110,10 @@ $data = mysql_query("SELECT  SUM(logcount) AS sumlogin ,SUM(procount) AS sumprof
 $dt = new DateTime();
 echo $dt->format('Y-m-d H:i:s');
 
-$data = mysql_query("SELECT * FROM logincount WHERE org_id = '$id'  and date = '$today'") or die(mysql_error());
+$data = mysqli_query("SELECT * FROM logincount WHERE org_id = '$id'  and date = '$today'") or die(mysqli_error());
 
 
-        while($info = mysql_fetch_array( $data )){
+        while($info = mysqli_fetch_array( $data )){
             $logcount = $info['logcount'];
             $procont = $info['procount'];
             $cvsearch = $info['cvsearchcount'];
@@ -199,8 +199,8 @@ $data = mysql_query("SELECT * FROM logincount WHERE org_id = '$id'  and date = '
 </table>
 <?php
 $ac = ("SELECT DATEDIFF(end_date,NOW()) as period,end_date,start_date,type FROM account_control WHERE id='$orgid'  ");
-        $d = mysql_query($ac) or die(mysql_error());
-        while ($info2 =mysql_fetch_array($d) ){
+        $d = mysqli_query($ac) or die(mysqli_error());
+        while ($info2 =mysqli_fetch_array($d) ){
         $sdate = $info2['start_date'];
         $edate = $info2['end_date'];
         $type = $info2['type'];

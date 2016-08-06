@@ -3,8 +3,8 @@
 		include_once "../config/db.class.php";          //get the databse config file
 		
 		$query_get_all="SELECT * FROM user_info";	//get catagory and id of the row
-		$get_all_cat = mysql_query($query_get_all) 
-		or die(mysql_error()); 
+		$get_all_cat = mysqli_query($query_get_all) 
+		or die(mysqli_error()); 
 		
 		$user_areas=$_POST['areas'];					//get the user selected data from the form
 		$user_areas= explode(',',$user_areas);			//seperate the ctagories from the comma
@@ -21,7 +21,7 @@
 		for ($y=0; $y<=$result_select; $y++)			// strat the user selected catagories
 	{
 		$user_areas[$y] = preg_replace('/\s+/', '', $user_areas[$y]); // remove the spaces of the user selected to make the string easier to search  
-		while($row = mysql_fetch_array($get_all_cat))				  		
+		while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		foreach($rows as $row){ 
 		
@@ -51,7 +51,7 @@
 		
 	for ($c=0; $c<$result_location; $c++)			// strat the user selected catagories
 	{
-	while($row = mysql_fetch_array($get_all_cat))				  		
+	while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		foreach($rows as $row){ 
 		$locations= explode('|',$row['basic_info']);	
@@ -81,7 +81,7 @@
 
 	for ($t=0; $t<$user_pro_count; $t++)			
 	{	
-	while($row = mysql_fetch_array($get_all_cat))				  		
+	while($row = mysqli_fetch_array($get_all_cat))				  		
 		$rows[] = $row;
 		foreach($rows as $row){ 
 		$quolifications= explode(',',$row['quolifications']);	
@@ -131,12 +131,12 @@
 		
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT * FROM user_info WHERE active='1' AND  id='$row' ORDER BY id DESC LIMIT 20") //query the databse 
-		or die(mysql_error()); 
+		$data = mysqli_query("SELECT * FROM user_info WHERE active='1' AND  id='$row' ORDER BY id DESC LIMIT 20") //query the databse 
+		or die(mysqli_error()); 
                
                
 			
-			while ($info = mysql_fetch_array($data)) {
+			while ($info = mysqli_fetch_array($data)) {
                 ?>
                 <tr class="info">				
                     <?php

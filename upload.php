@@ -26,23 +26,23 @@ if($_POST["action"]=="upload")
 			if ($fileExt=="png" || $fileExt=="jpg" || $fileExt=="JPG" || $fileExt=="PNG" ){
 			$query=("UPDATE user_info SET pic_info='$Filename' WHERE id='$id'");
 
-			mysql_query($query) 
-			or die(mysql_error()); 
+			mysqli_query($query) 
+			or die(mysqli_error()); 
 
 			}
 			if ($fileExt=="pdf" || $fileExt=="docx" || $fileExt=="doc" ){
 			
 			$query1=("UPDATE user_info SET cv_info='$Filename' WHERE id='$id'");
 
-			mysql_query($query1) 
-			or die(mysql_error());
+			mysqli_query($query1) 
+			or die(mysqli_error());
 			}
 			if ($fileExt=="png" || $fileExt=="jpg" || $fileExt=="JPG" || $fileExt =="PNG" ){
 			
 			$query1=("insert into org_info (logo) values('$Filename') ");
 
-			mysql_query($query1) 
-			or die(mysql_error());
+			mysqli_query($query1) 
+			or die(mysqli_error());
 			}
 			
 			

@@ -32,8 +32,8 @@
         if ($approve == "yes") {
 
             $query = ("UPDATE user_info SET active='1' WHERE id='$id'");
-            $data = mysql_query($query)
-                    or die(mysql_error());
+            $data = mysqli_query($query)
+                    or die(mysqli_error());
         }
     }
     if (isset($_GET['delete'])) {
@@ -42,8 +42,8 @@
 
             $query = ("DELETE FROM user_info WHERE id='$id'");
 
-            $data = mysql_query($query)
-                    or die(mysql_error());
+            $data = mysqli_query($query)
+                    or die(mysqli_error());
         }
     }
     if (isset($_GET['id'])) {
@@ -53,9 +53,9 @@
 
 
 
-    $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-            or die(mysql_error());
-    while ($info = mysql_fetch_array($data)) {
+    $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+            or die(mysqli_error());
+    while ($info = mysqli_fetch_array($data)) {
         $basic_info = ($info['basic_info']);
         $email = ($info['user_name']);
         $update = $info['updateTime'];
@@ -225,9 +225,9 @@
 			<div class="col-md-4">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 0 ,15") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 0 ,15") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -267,9 +267,9 @@
                 <div class="col-md-4">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 15 ,15") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 15 ,15") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -311,9 +311,9 @@
 		<div class="col-md-4">
 		
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat LIMIT 30 ,43") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat LIMIT 30 ,43") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];
@@ -417,8 +417,8 @@
                                         <?php
                                         $data2 = "SELECT vacancies.id , vacancies.jobPos, vacancies.jobLoc
 FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_id WHERE seeker_id ='$id'";
-                                        $vacncies = mysql_query($data2);
-                                        while ($vacan_seeker = mysql_fetch_row($vacncies)) {
+                                        $vacncies = mysqli_query($data2);
+                                        while ($vacan_seeker = mysqli_fetch_row($vacncies)) {
                                             $vacan_seeker_array = explode('|', $vacan_seeker);
                                             if (!isset($vacan_seeker)) {//removing the offset error
                                                 $vacan_seeker = null;
@@ -719,9 +719,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                             <tbody id='subject_table'>
 
                                 <?php
-                                $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                                        or die(mysql_error());
-                                while ($info = mysql_fetch_array($data)) {
+                                $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                                        or die(mysqli_error());
+                                while ($info = mysqli_fetch_array($data)) {
 
                                     $string = ($info['ol_info']);
                                     $array3 = explode(',', $string);
@@ -762,9 +762,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
 
                         <option value="0">Select Subject</option>
                         <?php
-                        $data = mysql_query("SELECT * FROM subjects_ol")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM subjects_ol")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
                             $sub_ol = preg_replace('/\s+/', '_', $info['subject_name']);
                             ?>
 
@@ -821,9 +821,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                     </thead>
                      <tbody id='subject_table'>
                     <?php
-                    $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                            or die(mysql_error());
-                    while ($info = mysql_fetch_array($data)) {
+                    $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                            or die(mysqli_error());
+                    while ($info = mysqli_fetch_array($data)) {
 
                         $string = ($info['al_info']);
                         $array3 = explode(',', $string);
@@ -864,9 +864,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
 
                     <option value="">Select Subject</option>
                     <?php
-                    $data = mysql_query("SELECT * FROM subjects_al")
-                            or die(mysql_error());
-                    while ($info = mysql_fetch_array($data)) {
+                    $data = mysqli_query("SELECT * FROM subjects_al")
+                            or die(mysqli_error());
+                    while ($info = mysqli_fetch_array($data)) {
                         $sub = preg_replace('/\s+/', '_', $info['subject_name']);
                         ?>
 
@@ -925,9 +925,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                     <tbody id='subject_table_course'>
 
                         <?php
-                        $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
 
                             $string = ($info['pro_info']);
                             $array3 = explode(',', $string);
@@ -1020,9 +1020,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
         <div class="container">
             <div class='row cv_head'><div class='col-md-4 h1_head'>Language Skills</div><div class='col-md-4 h1_head_sub'></div><div class='col-md-4 h1_head_sub' ></div><button type='button btn-success' onClick='toggle_lang()' style='position: relative;left:60%' >Edit</button></div>
             <?php
-            $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                    or die(mysql_error());
-            while ($info = mysql_fetch_array($data)) {
+            $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                    or die(mysqli_error());
+            while ($info = mysqli_fetch_array($data)) {
 
                 $os = array();
                 $string1 = ($info['lan_info']);
@@ -1304,9 +1304,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                     </thead>
                     <tbody id='computer_table1'>
                         <?php
-                        $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
 
                             $string = ($info['com_info']);
                             $array3 = explode(',', $string);
@@ -1354,9 +1354,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                             $i = "";
 
 
-                            $data = mysql_query("SELECT * FROM courses LIMIT 0, 8")
-                                    or die(mysql_error());
-                            while ($info = mysql_fetch_array($data)) {
+                            $data = mysqli_query("SELECT * FROM courses LIMIT 0, 8")
+                                    or die(mysqli_error());
+                            while ($info = mysqli_fetch_array($data)) {
                                 $link = $info['name'];
                                 $no_space_link = preg_replace('/\s+/', '', $link);
 
@@ -1447,9 +1447,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                     </thead>
                     <tbody id="work_ex">
                         <?php
-                        $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
 
                             $string = ($info['wok_info']);
                             $array3 = explode(',', $string);
@@ -1537,9 +1537,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                     </thead>
                     <tbody class="col-md-12 " >
                         <?php
-                        $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
 
                             $string = ($info['city_info']);
                             $array3 = explode(',', $string);
@@ -1637,9 +1637,9 @@ FROM vacancies INNER JOIN seeker_vacant ON vacancies.id = seeker_vacant.vacant_i
                     </thead>
                     <tbody class="col-md-4" id="city_info"  >
                         <?php
-                        $data = mysql_query("SELECT * FROM user_info WHERE id='$id'")
-                                or die(mysql_error());
-                        while ($info = mysql_fetch_array($data)) {
+                        $data = mysqli_query("SELECT * FROM user_info WHERE id='$id'")
+                                or die(mysqli_error());
+                        while ($info = mysqli_fetch_array($data)) {
 
                             $string = ($info['drive_info']);
                             $array3 = explode(',', $string);

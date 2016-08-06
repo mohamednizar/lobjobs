@@ -59,9 +59,9 @@ if (!isset($_SESSION['username'])) {
 		   <select class="selectpicker ">
 
 			<?php
-			$data = mysql_query("SELECT * FROM applying_cat") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM applying_cat") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$cat =$info['cat'];
 			$areas =$info['areas'];

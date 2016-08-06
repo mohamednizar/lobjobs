@@ -22,9 +22,9 @@ include_once "../config/db.class.php";
 
       $id= $_GET['id'];
       
-			$data = mysql_query("SELECT * FROM vacancies WHERE id ='$id' ") 
-			or die(mysql_error()); 
-			while($info = mysql_fetch_array( $data )) 
+			$data = mysqli_query("SELECT * FROM vacancies WHERE id ='$id' ") 
+			or die(mysqli_error()); 
+			while($info = mysqli_fetch_array( $data )) 
 			{ 
 			$jobid =$info['id'];
 			$orgid = $info['Orgid'];
@@ -52,8 +52,8 @@ include_once "../config/db.class.php";
 				
 				$query=("DELETE FROM vacancies WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
     	$org = $_GET['org'];
@@ -102,9 +102,9 @@ include_once "../config/db.class.php";
                     
 
 <?php
-$data = mysql_query("SELECT * FROM applying_cat")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+$data = mysqli_query("SELECT * FROM applying_cat")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
 
     $areas = $info['areas'];
     $link = str_replace(' ', '_', $cat);
@@ -466,9 +466,9 @@ while ($info = mysql_fetch_array($data)) {
 			?>
 			 <div>
 <?php
-					$data = mysql_query("SELECT * FROM org_info WHERE id='$orgid'") 
-					or die(mysql_error()); 
-					while($info = mysql_fetch_array( $data )) {
+					$data = mysqli_query("SELECT * FROM org_info WHERE id='$orgid'") 
+					or die(mysqli_error()); 
+					while($info = mysqli_fetch_array( $data )) {
 					$basic_info= ($info['basic_info']);
 					$cname= ($info['cname']);
                                         $phone = ($info['phone']);
@@ -601,10 +601,10 @@ while ($info = mysql_fetch_array($data)) {
 		include_once "./config/db.class.php";
 		$qualified_ol=false;
 		$qualified_al=false;
-		$data = mysql_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,seeker_vacant.* from user_info  INNER JOIN seeker_vacant ON user_info.id = seeker_vacant.seeker_id WHERE vacant_id =  $id AND status='a' and user_info.active=1 ORDER BY seeker_vacant.updatetime DESC" ) //query the databse 
-		or die(mysql_error());
+		$data = mysqli_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,seeker_vacant.* from user_info  INNER JOIN seeker_vacant ON user_info.id = seeker_vacant.seeker_id WHERE vacant_id =  $id AND status='a' and user_info.active=1 ORDER BY seeker_vacant.updatetime DESC" ) //query the databse 
+		or die(mysqli_error());
 		
-			while($info = mysql_fetch_array( $data )) {
+			while($info = mysqli_fetch_array( $data )) {
 			?>
 				    <tr class="info">				
 			<?php
@@ -716,12 +716,12 @@ while ($info = mysql_fetch_array($data)) {
 		$qualified_al=false;
 		$h = 'h';
 		$jid = $_GET['id'];
-		$data2 = mysql_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='h' and user_info.active=1 ORDER BY haedhunting.updatetime DESC" ) //query the databse 
-		or die(mysql_error());
+		$data2 = mysqli_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='h' and user_info.active=1 ORDER BY haedhunting.updatetime DESC" ) //query the databse 
+		or die(mysqli_error());
 		
 			
 			
-			while($info = mysql_fetch_array( $data2 )) {
+			while($info = mysqli_fetch_array( $data2 )) {
 			?>
 				    			
 			<?php
@@ -834,12 +834,12 @@ while ($info = mysql_fetch_array($data)) {
 		$qualified_al=false;
 		$h = 'h';
 		$jid = $_GET['id'];
-		$data2 = mysql_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='f' and user_info.active=1  ORDER BY haedhunting.updatetime DESC " ) //query the databse 
-		or die(mysql_error());
+		$data2 = mysqli_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='f' and user_info.active=1  ORDER BY haedhunting.updatetime DESC " ) //query the databse 
+		or die(mysqli_error());
 		
 			
 			
-			while($info = mysql_fetch_array( $data2 )) {
+			while($info = mysqli_fetch_array( $data2 )) {
 			?>
 				    			
 			<?php
@@ -951,12 +951,12 @@ while ($info = mysql_fetch_array($data)) {
 		$qualified_al=false;
 		$h = 'h';
 		$jid = $_GET['id'];
-		$data2 = mysql_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='i'  and user_info.active=1 ORDER BY haedhunting.updatetime DESC"  ) //query the databse 
-		or die(mysql_error());
+		$data2 = mysqli_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='i'  and user_info.active=1 ORDER BY haedhunting.updatetime DESC"  ) //query the databse 
+		or die(mysqli_error());
 		
 			
 			
-			while($info = mysql_fetch_array( $data2 )) {
+			while($info = mysqli_fetch_array( $data2 )) {
 			?>
 				    			
 			<?php
@@ -1072,12 +1072,12 @@ while ($info = mysql_fetch_array($data)) {
 		$qualified_al=false;
 		$h = 'h';
 		$jid = $_GET['id'];
-		$data2 = mysql_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='s' and user_info.active=1  ORDER BY haedhunting.updatetime DESC " ) //query the databse 
-		or die(mysql_error());
+		$data2 = mysqli_query("SELECT user_info.pro_info,user_info.al_info,user_info.ol_info,user_info.basic_info,user_info.id,haedhunting.* from user_info  INNER JOIN haedhunting ON user_info.id = haedhunting.seeker_id WHERE vacant_id =  $jid  AND haedhunting.status='s' and user_info.active=1  ORDER BY haedhunting.updatetime DESC " ) //query the databse 
+		or die(mysqli_error());
 		
 			
 			
-			while($info = mysql_fetch_array( $data2 )) {
+			while($info = mysqli_fetch_array( $data2 )) {
 			?>
 				    			
 			<?php

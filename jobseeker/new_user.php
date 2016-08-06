@@ -15,16 +15,16 @@ include_once "../config/db.class.php";
         if (isset($_POST['submit'])) {
                                         $cat=$_POST["cat_info"];
                                         
-					$myusername = mysql_real_escape_string($_POST['email']);
-					$mypassword = mysql_real_escape_string($_POST['password']);
+					$myusername = mysqli_real_escape_string($_POST['email']);
+					$mypassword = mysqli_real_escape_string($_POST['password']);
 					$myusername = stripslashes($myusername);
         				$mypassword = stripslashes($mypassword);
                                         $pass = hash('sha512', $mypassword);
                                         $id = $_GET['id'];
                                       
 					
-                                         $check = mysql_query("select user_name from user_info where user_name = '$myusername'") or die (mysql_error());
-                                         $checked = mysql_fetch_array($check);
+                                         $check = mysqli_query("select user_name from user_info where user_name = '$myusername'") or die (mysqli_error());
+                                         $checked = mysqli_fetch_array($check);
                                          
                                          if ($checked>=1){
                                          
@@ -36,8 +36,8 @@ include_once "../config/db.class.php";
                                          }else{
                                         
                                          $id = $_GET['id'];
-					$data = mysql_query("UPDATE user_info SET user_name = '$myusername', password = '$pass'  where id = '$id' ") 
-					or die(mysql_error());
+					$data = mysqli_query("UPDATE user_info SET user_name = '$myusername', password = '$pass'  where id = '$id' ") 
+					or die(mysqli_error());
 					
 				    	$url = "add_info2.php?id=".$id;
                                         echo '<script>window.location = "'.$url.'";</script>';       

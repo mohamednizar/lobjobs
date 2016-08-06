@@ -22,8 +22,8 @@ $id=$_POST['id'];
 $sql = "INSERT INTO vacancies (jobCat, jobPos, jobRes , jobQua, jobGen, jobSal,salaryDis,jobLoc,workingDays, jobInd, jobAdress,jobTime ,Orgid)
 VALUES ('$Category','$Position', '$Resp' , '$Quali' , '$Gender' , '$Salary' ,'$salaryDis','$location','$workingDays','$Business' , '$interOffice' ,'$intTime' ,'$id' )";
 
-$data = mysql_query($sql)
- or die(mysql_error()); 
+$data = mysqli_query($sql)
+ or die(mysqli_error()); 
 
  echo " Job vacancy submitted Successfully " ;
 

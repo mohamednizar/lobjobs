@@ -29,8 +29,8 @@ include_once "../config/header.php";
 				
 				$query=("DELETE FROM org_info WHERE id='$id'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				$location = "org_info.php?app=nactive";
                     		header("Location:" . $location);
@@ -41,8 +41,8 @@ include_once "../config/header.php";
 				if (($_GET['app'])=="send"){
 				
 				$query=("UPDATE org_info SET track='1' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				$location = "org_info.php?app=nactive";
                     		header("Location:" . $location);
 				
@@ -50,8 +50,8 @@ include_once "../config/header.php";
 				if (($_GET['app'])=="back")
 				{
 				$query=("UPDATE org_info SET track='0' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error());
+				$data = mysqli_query($query) 
+				or die(mysqli_error());
 				 $location = "org_info.php?app=active";
                     		header("Location:" . $location);
 				
@@ -59,12 +59,12 @@ include_once "../config/header.php";
 				if (($_GET['app'])=="approve")
 				{
 				$query=("UPDATE org_info SET active='1' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error());
+				$data = mysqli_query($query) 
+				or die(mysqli_error());
 				
 				 $quary2 = ("SELECT * FROM org_info WHERE id ='$id'" );
-				 $d = mysql_query($quary2);	
-		                $result = mysql_fetch_array($d);
+				 $d = mysqli_query($quary2);	
+		                $result = mysqli_fetch_array($d);
 		                $email = $result['username'];
 		                
 		                //$to = 'nizarucsc@gmail.com';
@@ -88,8 +88,8 @@ include_once "../config/header.php";
 				if (($_GET['app'])=="dis")
 				{
 				$query=("UPDATE org_info SET active='0' WHERE id='$id'");
-				$data = mysql_query($query) 
-				or die(mysql_error());
+				$data = mysqli_query($query) 
+				or die(mysqli_error());
 				 $location = "org_info.php?app=nactive";
                     		header("Location:" . $location);
 				
@@ -97,10 +97,10 @@ include_once "../config/header.php";
 				
 				if (($_GET['app'])=="nactive"){
 				 $today = date("Y-m-d");
-            $data = mysql_query("SELECT * FROM org_info  INNER JOIN logincount ON org_info.id=logincount.org_id  WHERE logincount.date = '$today' and org_info.track=0  GROUP BY org_info.id ORDER BY logincount.logcount DESC   ") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM org_info  INNER JOIN logincount ON org_info.id=logincount.org_id  WHERE logincount.date = '$today' and org_info.track=0  GROUP BY org_info.id ORDER BY logincount.logcount DESC   ") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
             
                  echo "<tr id='".$info[0]."' style='color:red'>";
                  echo "<td>".$info[0]."</td>";
@@ -138,10 +138,10 @@ include_once "../config/header.php";
 				}
 				
 		$today = date("Y-m-d");
-            $data = mysql_query("SELECT * FROM org_info  WHERE id NOT IN (SELECT org_id FROM  logincount WHERE date='$today' ) and org_info.track=0  ORDER BY  id DESC  ") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM org_info  WHERE id NOT IN (SELECT org_id FROM  logincount WHERE date='$today' ) and org_info.track=0  ORDER BY  id DESC  ") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
             
                  echo "<tr id='".$info[0]."' >";
                  echo "<td>".$info[0]."</td>";
@@ -188,10 +188,10 @@ include_once "../config/header.php";
 				
 				if (($_GET['app'])=="active"){
 				 $today = date("Y-m-d");
-            $data = mysql_query("SELECT * FROM org_info  INNER JOIN logincount ON org_info.id=logincount.org_id  WHERE logincount.date = '$today'  and org_info.track=1  GROUP BY org_info.id ORDER BY logincount.logcount DESC   ") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM org_info  INNER JOIN logincount ON org_info.id=logincount.org_id  WHERE logincount.date = '$today'  and org_info.track=1  GROUP BY org_info.id ORDER BY logincount.logcount DESC   ") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
             
                  echo "<tr id='".$info[0]."' style='color:red'>";
                  echo "<td>".$info[0]."</td>";
@@ -232,10 +232,10 @@ include_once "../config/header.php";
 				}
 				
 		$today = date("Y-m-d");
-            $data = mysql_query("SELECT * FROM org_info  WHERE id NOT IN (SELECT org_id FROM  logincount WHERE date='$today' ) and org_info.track=1   ORDER BY  id DESC  ") //query the databse 
-                    or die(mysql_error());
+            $data = mysqli_query("SELECT * FROM org_info  WHERE id NOT IN (SELECT org_id FROM  logincount WHERE date='$today' ) and org_info.track=1   ORDER BY  id DESC  ") //query the databse 
+                    or die(mysqli_error());
 
-            while ($info = mysql_fetch_array($data)) {
+            while ($info = mysqli_fetch_array($data)) {
             
                  echo "<tr id='".$info[0]."' >";
                  echo "<td>".$info[0]."</td>";

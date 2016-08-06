@@ -19,9 +19,9 @@ if (!isset($_SESSION['username'])) {
     
        
         $id = $_GET['id'];
-        $data = mysql_query("SELECT COUNT(*) AS total ,org_info.* FROM org_info WHERE id='$id'")
-        or die(mysql_error());
-while ($info = mysql_fetch_array($data)) {
+        $data = mysqli_query("SELECT COUNT(*) AS total ,org_info.* FROM org_info WHERE id='$id'")
+        or die(mysqli_error());
+while ($info = mysqli_fetch_array($data)) {
     $basic_info = ($info['basic_info']);
     $username = $info['username'];
     $active = $info['active'];
@@ -50,13 +50,13 @@ while ($info = mysql_fetch_array($data)) {
      $href_cvSerch = 'cv_search.php?cvs&id='.$orgid;
       
     //echo ($info['total']);
-    //echo mysql_num_rows($data);
+    //echo mysqli_num_rows($data);
    
     	
     
         $ac = ("SELECT DATEDIFF(end_date,NOW()) as period,end_date,start_date,type FROM account_control WHERE id='$orgid'  and id IN (SELECT id FROM org_info where id='$orgid' and track=1 ) ");
-        $d = mysql_query($ac) or die(mysql_error());
-        while ($info2 =mysql_fetch_array($d) ){
+        $d = mysqli_query($ac) or die(mysqli_error());
+        while ($info2 =mysqli_fetch_array($d) ){
         $today = date("Y-m-d");
         $sdate = $info2['start_date'];
         $edate =($info2['end_date']);

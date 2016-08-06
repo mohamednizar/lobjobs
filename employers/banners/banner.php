@@ -155,21 +155,21 @@ include 'header.php';
 				$bid = $_GET['bid'];
 				$query=("DELETE FROM banner_info WHERE id='$bid'");
 			
-				$data = mysql_query($query) 
-				or die(mysql_error()); 
+				$data = mysqli_query($query) 
+				or die(mysqli_error()); 
 				
 				}
 				  
  $id = $_GET['id'];
- $data = mysql_query("SELECT * FROM banner_info WHERE org_id=$id ORDER BY id DESC")
-or die(mysql_error());
+ $data = mysqli_query("SELECT * FROM banner_info WHERE org_id=$id ORDER BY id DESC")
+or die(mysqli_error());
 if (isset($_GET['ban'])){
  $id = $_GET['id'];
  $today = date("Y-m-d");
-$count = mysql_query("INSERT INTO logincount(org_id,date, bannercount) VALUES ('$id','$today',1) ON DUPLICATE KEY UPDATE bannercount=bannercount+1")
-                            or die(mysql_error());
+$count = mysqli_query("INSERT INTO logincount(org_id,date, bannercount) VALUES ('$id','$today',1) ON DUPLICATE KEY UPDATE bannercount=bannercount+1")
+                            or die(mysqli_error());
 }
-while($row = mysql_fetch_assoc($data))
+while($row = mysqli_fetch_assoc($data))
 {
 
 	
@@ -187,9 +187,9 @@ while($row = mysql_fetch_assoc($data))
  <h4 class="col-md-12" > All Banners</h4>
  
  <?php       
- $data = mysql_query("SELECT * FROM banner_info WHERE 1 ORDER BY id DESC")
-or die(mysql_error());
-while($row = mysql_fetch_assoc($data))
+ $data = mysqli_query("SELECT * FROM banner_info WHERE 1 ORDER BY id DESC")
+or die(mysqli_error());
+while($row = mysqli_fetch_assoc($data))
 {
 	$banner = $row['banner_info'];
 	$date = $row['update'];

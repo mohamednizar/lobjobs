@@ -10,7 +10,7 @@ include_once "../config/db.class.php";
 
 
 
- $host = "mysql.hostinger.in";
+ $host = "mysqli.hostinger.in";
     $database = "u426162963_lob";
     $password = "ICkP5hRudr";
     $username = "u426162963_admin";
@@ -30,11 +30,11 @@ include_once "../config/db.class.php";
                                         $encrypt = Md5(90*13 + $id);
 					
 				   
-					$mysqli = new mysqli($host, $username, $password, $database ,$port) 
+					$mysqlii = new mysqlii($host, $username, $password, $database ,$port) 
 					or die('no connection to server');
 					
-                                         $check = mysql_query("select user_name from user_info where user_name = '$myusername'") or die (mysql_error());
-                                         $checked = mysql_fetch_array($check);
+                                         $check = mysqli_query("select user_name from user_info where user_name = '$myusername'") or die (mysqli_error());
+                                         $checked = mysqli_fetch_array($check);
                                          
                                          if ($checked>=1){
                                          ?>
@@ -69,9 +69,9 @@ include_once "../config/db.class.php";
 					echo '<script>alert(document.div1.value);</script>';
 					
                                          }
-					$data = mysql_query("UPDATE user_info SET user_name = '$myusername',password='$pass'  where id = '$id' ") 
+					$data = mysqli_query("UPDATE user_info SET user_name = '$myusername',password='$pass'  where id = '$id' ") 
 					or die ; 
-                                                $info = mysql_fetch_array( $data );
+                                                $info = mysqli_fetch_array( $data );
                                                 if ($data){
                    			        $id = $_GET['id'];
 
@@ -80,15 +80,15 @@ include_once "../config/db.class.php";
 				    
                      				header("Location:".$location );
                     			 	if(isset($_GET['id'])){
-                                            $data = mysql_query("SELECT id FROM user_info WHERE user_name='$myusername'") 
-						or die(mysql_error()); 
+                                            $data = mysqli_query("SELECT id FROM user_info WHERE user_name='$myusername'") 
+						or die(mysqli_error()); 
                                            $vacant = $_GET['id'];
-                                           $info = mysql_fetch_array( $data );
+                                           $info = mysqli_fetch_array( $data );
                                             $id = $info['id'];
                                            
                                           $add_vacant =  "INSERT INTO seeker_vacant(vacant_id,seeker_id) "
                                             . "VALUES('$vacant','$id')";
-                                        mysql_query($add_vacant);
+                                        mysqli_query($add_vacant);
                                         }
 				
 					
