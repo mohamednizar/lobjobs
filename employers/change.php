@@ -1,10 +1,10 @@
 
 <?php
  // Connect to MySQL
-     $password = "6pgHDcoHxo";
-     $password = "adminwagSBFP";
-     $host = "mysql.hostinger.in";
-     $dbname = "lobjobs";
+        $host   = "mysql.hostinger.in";
+        $dbname = "u426162963_lob";
+        $username = "u426162963_admin";
+        $password = "6pgHDcoHxo";
      
  try {
  $conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username,
