@@ -3,10 +3,10 @@ include_once "../config/header.php";
 include_once "../config/db.class.php";
 
  // Connect to MySQL
+     $username = "u426162963_admin";
      $password = "6pgHDcoHxo";
-     $password = "adminwagSBFP";
      $host = "mysql.hostinger.in";
-     $dbname = "lobjobs";
+     $dbname = "u426162963_lob";
  try {
  $conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username,
 $password);
