@@ -1,7 +1,7 @@
 <?php
 include_once "../config/header.php";
 include_once "../config/db.class.php";
-include_once 'login.php';
+// include_once 'login.php';
 
 if (!isset($_SESSION['username'])) {
 
