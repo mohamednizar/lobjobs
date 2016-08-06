@@ -8,10 +8,9 @@ include_once "../config/db.class.php";
     <?php
     $host = "mysql.hostinger.in";
     $database = "u426162963_lob";
-    $username = "u426162963_admin";
-    $password = "6pgHDcoHxo";
+    $username = "u426162963_admin"
+    $password = "6pgHDcoHxo"
     $port = "3036";
-
 
     if (isset($_POST['submit'])) {
 

@@ -8,8 +8,8 @@ include_once "../config/db.class.php";
     <?php
     $host = "mysql.hostinger.in";
     $database = "u426162963_lob";
-    $password = "6pgHDcoHxo";
-    $password = "adminwagSBFP";
+    $username = "u426162963_admin"
+    $password = "6pgHDcoHxo"
     $port = "3036";
 
 
