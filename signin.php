@@ -9,10 +9,10 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "127.4.165.130";
-    $database = "lobjobs";
-    $username = "adminwagSBFP";
-    $password = "YJcrW76tbMj2";
+    $host = "mysql.hostinger.in";
+    $database = "u426162963_lob";
+    $username = "u426162963_admin";
+    $password = "6pgHDcoHxo";
     $port = "3036";
 
     

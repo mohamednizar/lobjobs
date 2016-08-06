@@ -6,9 +6,9 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "127.4.165.130";
-    $database = "lobjobs";
-    $password = " aTiE-N3vLNx6";
+    $host = "mysql.hostinger.in";
+    $database = "u426162963_lob";
+    $password = "6pgHDcoHxo";
     $password = "adminwagSBFP";
     $port = "3036";
     if (isset($_POST['submit2'])) {

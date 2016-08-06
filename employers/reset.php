@@ -3,9 +3,9 @@ include_once "../config/header.php";
 include_once "../config/db.class.php";
 
  // Connect to MySQL
-     $password = " aTiE-N3vLNx6";
+     $password = "6pgHDcoHxo";
      $password = "adminwagSBFP";
-     $host = "127.4.165.130";
+     $host = "mysql.hostinger.in";
      $dbname = "lobjobs";
  try {
  $conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username,

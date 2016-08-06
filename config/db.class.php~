@@ -1,8 +1,8 @@
 <?php
 $server   = "127.4.165.130:3036";
-$database = "lobjobs";
-$username = "adminwagSBFP";
-$password = "aTiE-N3vLNx6";
+$database = "u426162963_lob";
+$username = "u426162963_admin";
+$password = "6pgHDcoHxo";
 
 $mysqlConnection = mysql_connect($server, $username, $password);
 if (!$mysqlConnection)
