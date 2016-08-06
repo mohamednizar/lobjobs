@@ -1,7 +1,7 @@
 <?php
-$server   = "127.4.165.130";
+$server   = "mysql.hostinger.in";
 $database = "lobjobs";
-$username = "adminwagSBFP";
+$username = "u426162963_admin";
 $password = "aTiE-N3vLNx6";
 
 $mysqlConnection = mysql_connect($server, $username, $password);

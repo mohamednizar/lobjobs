@@ -6,9 +6,9 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
-    $host = "127.4.165.130";
+    $host = "mysql.hostinger.in";
     $database = "lobjobs";
-    $username = "adminwagSBFP";
+    $username = "u426162963_admin";
     $password = "aTiE-N3vLNx6";
     $port = "3036";
 

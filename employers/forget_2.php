@@ -3,10 +3,10 @@ include_once "../config/header.php";
 include_once "../config/db.class.php";
 
 
-$host = "127.4.165.130";
+$host = "mysql.hostinger.in";
 $database = "lobjobs";
-$password = " aTiE-N3vLNx6";
-$password = "adminwagSBFP";
+$password = "ICkP5hRudr";
+$username = "u426162963_admin";
 $port = "3036";
 
 if (isset($_POST['email'])) {
