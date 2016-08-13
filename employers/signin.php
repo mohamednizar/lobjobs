@@ -8,7 +8,7 @@ include_once "../config/db.class.php";
 <body>
 
     <?php
- $host = "mysql.hostinger.in";
+$host = "localhost";
 $database = "u426162963_lob";
 $username = "u426162963_admin";
 $password = "6pgHDcoHxo";
